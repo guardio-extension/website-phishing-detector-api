@@ -26,7 +26,7 @@ def check_url():
         # Determine if phishing based on the message content
         is_phishing = "phishing" in message.lower()
 
-        return jsonify(
+        response = jsonify(
             {
                 "message": message,
                 "confidence": confidence,
@@ -34,6 +34,10 @@ def check_url():
                 "is_phishing": is_phishing,
             }
         )
+
+        print("Response:", response.json)
+
+        return response
 
     except Exception as e:
         return jsonify({"error": str(e), "status": "error"}), 500
@@ -80,8 +84,10 @@ def home():
                 <h2>Example Response</h2>
                 <pre>
 {
-    "result": "This website appears to be legitimate. (Confidence: 95.2%)",
-    "status": "success"
+    'confidence': '61.3%', 
+    'is_phishing': False, 
+    'message': 'This website appears to be legitimate.', 
+    'status': 'success'
 }
                 </pre>
             </div>
