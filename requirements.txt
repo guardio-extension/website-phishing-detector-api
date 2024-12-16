@@ -1,0 +1,10 @@
+urllib3
+ipaddress
+pandas
+scikit-learn
+xgboost
+requests
+flask
+flask-cors
+python-whois
+beautifulsoup4
